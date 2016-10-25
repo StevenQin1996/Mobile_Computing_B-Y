@@ -6,6 +6,9 @@ local scene = composer.newScene()
 
 composer.recycleOnSceneChange = true
 
+
 composer.gotoScene( "loadingscene" )
+
+
 
 return scene
