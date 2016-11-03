@@ -1,32 +1,55 @@
-
 local composer = require("composer")
-
+local widget = require ("widget")
 local scene = composer.newScene()
 	
-	function scene:create()
-	local text = display.newText("Sup", 220, 150, nil, 48)
-	text:setFillColor(1,0,0)
-	--text: setFillColor(1.0,0.15,0.25)
-	local text2 = display.newText("newScene", 220, 180, nil, 30)
-	text:setFillColor(1,0,0)
-	--function nextScene()
-		--composer.gotoScene("menu")
-	--
-	--end
-	--text:addEventListener("tap", nextScene)
+function scene:create()
+	local sceneGroup = self.view
+	local Warning = 0
+	local myScore = 0
+	local treeAnger = 0
+	----------------------------Tree: everytime the tree is taped will store energy to itself. when it is full, it will shake off all the apple .
+	local function treeButton( event )
+		treeAngere = treeAngere +1 
+		myScore = myScore - 50
+
+		if "ended" == phase then
+			if Warning == 0 then
+				Warning = Warning + 1
+				--do some sort of animation to tell user not to tap the tree.
+			else
+				if treeAngere == 10 then -- check if to use the skill or not
+					-- shake off all the apple
+					treeAngere = 0
+				end
+			end
+		end
 	end
 
- function scene:show()
+	local treeButton1 = widget.newButton
+	{
+		left = contentX -80,
+		top = contentY - 150,
+		width = 320,
+		height = 320,
+		defaultFile = "Images/tree.png",
+		id = "Background1",
+		onEvent = treeButton,
+	}
 
-	end
+	-----------------------------------
+end
 
- function scene:hide()
+function scene:show()
+
+end
+
+function scene:hide()
 	-- body
-	end
+end
 
-  function scene:destory()
+ function scene:destory()
 	-- body
-	end
+end
 
 scene:addEventListener("create", scene)
 scene:addEventListener("show", scene)

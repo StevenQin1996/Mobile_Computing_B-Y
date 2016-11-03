@@ -1,3 +1,6 @@
+--problems for this scene: sound on and off only apply to this scene. once leave the page, music turn back on automatically.
+
+
 local composer = require( "composer" )
 local widget = require ("widget")
 local scene = composer.newScene()
